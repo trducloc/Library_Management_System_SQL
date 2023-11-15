@@ -350,13 +350,6 @@ JOIN BorrowingDetails ON Books.BookID = BorrowingDetails.BookID
 JOIN BorrowingReceipts ON BorrowingDetails.ReceiptID = BorrowingReceipts.ReceiptID
 WHERE BorrowingReceipts.Status = 'Returned';
 
--- Lấy tên sách và ngày nhập của tất cả sách có số lượng nhập lớn hơn 10.
-SELECT Books.Title, BookEntry.EntryDate
-FROM Books
-JOIN EntryDetails ON Books.BookID = EntryDetails.BookID
-JOIN BookEntry ON EntryDetails.EntryID = BookEntry.EntryID
-WHERE EntryDetails.QuantityEntered > 10;
-
 -- Lấy tên đầy đủ và địa chỉ của tất cả độc giả đã mượn sách và đang giữ sách quá hạn. 
 SELECT Readers.FullName, Readers.Address
 FROM Readers
